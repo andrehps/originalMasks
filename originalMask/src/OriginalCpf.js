@@ -7,7 +7,7 @@ angular.module("ui.original.masks").directive("uiOriginalCpf", ['Formatters', 'V
         link: function(scope, elm, attrs, ctrl) {
             elm.bind("keyup", function(){
                 var value = Formatters.clean(ctrl.$viewValue);
-                var isValid = Validators[subject](value) && value.length == 11;
+                var isValid = Validators[subject](value);
                 
                 ctrl.$setViewValue(Formatters[subject](value));
                 ctrl.$render();
