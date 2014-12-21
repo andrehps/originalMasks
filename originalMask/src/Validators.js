@@ -19,10 +19,8 @@ angular.module("ui.original.masks").service("Validators", function(){
     		}
     	},
     
-        cpf: function(documentNumber) {
-    	   
-        	var size = 11;
-        	
+        cpf: function(documentNumber, size) {
+    	  
     	    if (this.commonValid(documentNumber, size)) {
     	        return false;
     	    }

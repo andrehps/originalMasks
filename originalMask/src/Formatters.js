@@ -8,9 +8,7 @@ angular.module("ui.original.masks").service("Formatters", function(){
         	//do the regex to mask in the generic way all of data
         },
         
-        cpf: function (number) {
-        	var size = 11;
-        	
+        cpf: function (number, size) {
         	//it will fix the error when the user holds number key, and the browser prints out 14 numbers.
         	// it, turns in just 11 numbers again, because the maxlength is 14 WITH dots.
         	if (number.length > size) {
