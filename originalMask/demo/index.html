@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>DEMO</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+<script src="../src/OriginalMasks.js"></script>
+<script src="../src/Formatters.js"></script>
+<script src="../src/Validators.js"></script>
+<script src="../src/OriginalCpf.js"></script>
+
+<script>
+	var DemoApp = angular.module("DemoApp", ["ui.original.masks"]);
+	
+	DemoApp.controller("LoginController", ['$scope', function($scope){
+        $scope.username = "";
+        $scope.password = "";
+
+        $scope.isValidCPF = false;
+        
+        $scope.login = function(){
+            console.log($scope.username);
+        }
+	}]);
+</script>
+
+<style>
+
+.ok input {
+	color: green;
+}
+
+.nok input  {
+	color: red;
+}
+
+
+</style>
+
+</head>
+<body ng-app="DemoApp">
+	<div class="login-area" ng-controller="LoginController">
+	    <label class="{{isValidCPF ? 'ok' : 'nok' }}">
+	        <input ui-original-cpf maxlength="14" type="tel" ng-model="username"  validate-model="isValidCPF"  />
+	    </label>
+
+	    <label>
+	        <input ng-show="isValidCPF" type="tel" ng-model="password"/>
+	    </label>
+	    
+	    <div>
+	        <button ng-click="login()">Login</button>
+	    </div>
+	</div>
+</body>
+</html>
